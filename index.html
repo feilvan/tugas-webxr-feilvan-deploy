@@ -1,0 +1,39 @@
+---
+layout: layout
+title: Tugas WebXR
+---
+
+<a-scene>
+  <a-camera>
+    <a-text
+      value="Tata Surya"
+      align="center"
+      position="0 -0.08 -0.1"
+      scale="0.02 0.02 0"
+    ></a-text>
+  </a-camera>
+
+  <a-entity
+    laser-controls="hand: left;"
+    sphere-collider="objects: .grabbable;"
+    super-hands
+    hand-controls="hand: left;"
+  ></a-entity>
+  <a-entity
+    laser-controls="hand: right;"
+    sphere-collider="objects: .grabbable;"
+    super-hands
+    hand-controls="hand: right;"
+  ></a-entity>
+
+  <a-sky src="/img/unnamed.png" color="#999"></a-sky>
+
+  <a-entity
+    toggle
+    grabbable
+    gltf-model="/models/solar/source/Orbiting solar system.glb"
+    position="0 0 -30"
+    scale="10 10 10"
+    animation-mixer="clip:  natural_orbit;  timeScale:  0.1"
+  ></a-entity>
+</a-scene>
