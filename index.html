@@ -11,6 +11,28 @@ title: Tugas WebXR
       position="0 -0.08 -0.1"
       scale="0.02 0.02 0"
     ></a-text>
+    <a-plane
+      text="value: Pause;color: black;align: center;width: 3;"
+      width="1"
+      height="0.3"
+      position="-1 -1 -2"
+      proxy-event="
+        event: click;
+        as: pause;
+        to: #solar;
+      "
+    ></a-plane>
+    <a-plane
+      text="value: Resume;color: black;align: center;width: 3;"
+      width="1"
+      height="0.3"
+      position="1 -1 -2"
+      proxy-event="
+        event: click;
+        as: resume;
+        to: #solar;
+      "
+    ></a-plane>
   </a-camera>
 
   <a-entity
@@ -31,9 +53,22 @@ title: Tugas WebXR
   <a-entity
     toggle
     grabbable
+    id="solar"
     gltf-model="/models/solar/source/Orbiting solar system.glb"
     position="0 0 -30"
     scale="10 10 10"
     animation-mixer="clip:  natural_orbit;  timeScale:  0.1"
+    animation__pause="
+      property: animation-mixer.timeScale;
+      from: 0.1;
+      to: 0;
+      startEvents: pause;
+    "
+    animation__resume="
+      property: animation-mixer.timeScale;
+      from: 0;
+      to: 0.1;
+      startEvents: resume;
+    "
   ></a-entity>
 </a-scene>
